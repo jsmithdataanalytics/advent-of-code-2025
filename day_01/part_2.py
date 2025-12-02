@@ -1,12 +1,21 @@
 from day_01.part_1 import parse_input
 
 
-def solve(puzzle_input: str) -> int:
-    list_1, list_2 = parse_input(puzzle_input)
+def main(puzzle_input: str) -> int:
+    turns = parse_input(puzzle_input)
+    dial_position = 50
+    count = 0
 
-    score = 0
+    for turn in turns:
 
-    for num in list_1:
-        score += num * list_2.count(num)
+        if turn >= 0:
+            count += turn // 100
+            count += int(dial_position + (turn % 100) >= 100)
 
-    return score
+        else:
+            count += abs(turn) // 100
+            count += int(dial_position - (abs(turn) % 100) <= 0 < dial_position)
+
+        dial_position = (dial_position + turn) % 100
+
+    return count
