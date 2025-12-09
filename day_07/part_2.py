@@ -26,8 +26,8 @@ def _count_timelines(
 
     elif (start_i + 1, start_j) in splitter_positions:
         num_timelines = (
-                _count_timelines((start_i + 1, start_j - 1), lowest_splitter_i, splitter_positions) +
-                _count_timelines((start_i + 1, start_j + 1), lowest_splitter_i, splitter_positions)
+            _count_timelines((start_i + 1, start_j - 1), lowest_splitter_i, splitter_positions) +
+            _count_timelines((start_i + 1, start_j + 1), lowest_splitter_i, splitter_positions)
         )
 
     else:
